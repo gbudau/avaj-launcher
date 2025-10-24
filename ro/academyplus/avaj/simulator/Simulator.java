@@ -8,7 +8,7 @@ import java.util.List;
 public class Simulator {
     void main(String[] args) {
         if  (args.length != 1) {
-            System.err.println("Usage: java ro.academyplus.avaj.simulator.Simulator <scenario file>");
+            System.out.println("Usage: java ro.academyplus.avaj.simulator.Simulator <scenario file>");
             System.exit(1);
         }
 
@@ -21,7 +21,7 @@ public class Simulator {
                 System.out.println(line);
             }
         } catch (IOException e) {
-            System.err.println("Unable to read scenario: " + e.getMessage());
+            System.out.println("Unable to read scenario: " + e.getMessage());
             System.exit(1);
         }
     }
