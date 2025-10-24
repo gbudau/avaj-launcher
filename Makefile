@@ -1,12 +1,9 @@
 MAIN_CLASS = ro.academyplus.avaj.simulator.Simulator
-
 SCENARIO_FILE = scenario.txt
 
-JAVA_FILES = $(shell find $(SRC_DIR) -name "*.java")
+all: compile run
 
-all: run
-
-compile: $(JAVA_FILES)
+compile:
 	@echo "Finding source files..."
 	find . -name "*.java" > sources.txt
 
@@ -14,13 +11,13 @@ compile: $(JAVA_FILES)
 	javac @sources.txt
 	@echo "Compilation successful."
 
-run: compile
+run:
 	@echo "Running simulator..."
 	java $(MAIN_CLASS) $(SCENARIO_FILE)
 
 clean:
 	@echo "Cleaning project..."
-	rm -rf *.class
+	find . -type f -name "*.class" -delete
 	rm -f simulation.txt
 	rm -f sources.txt
 

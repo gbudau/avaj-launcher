@@ -3,7 +3,7 @@ package ro.academyplus.avaj.aircraft;
 import ro.academyplus.avaj.tower.WeatherTower;
 
 public abstract class Flyable {
-    protected WeatherTower weatherTower;
+    protected WeatherTower weatherTower = null;
 
     public abstract void updateConditions();
 
