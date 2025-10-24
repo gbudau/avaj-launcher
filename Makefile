@@ -16,11 +16,12 @@ compile: $(JAVA_FILES)
 
 run: compile
 	@echo "Running simulator..."
-	@java $(MAIN_CLASS) $(SCENARIO_FILE)
+	java $(MAIN_CLASS) $(SCENARIO_FILE)
 
 clean:
 	@echo "Cleaning project..."
 	rm -rf *.class
+	rm -f simulation.txt
 	rm -f sources.txt
 
 re: clean all
