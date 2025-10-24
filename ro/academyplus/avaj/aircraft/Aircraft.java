@@ -1,4 +1,6 @@
-package ro.academyplus.avaj.simulator;
+package ro.academyplus.avaj.aircraft;
+
+import ro.academyplus.avaj.model.Coordinates;
 
 class Aircraft extends Flyable {
     protected final long id;
@@ -9,5 +11,10 @@ class Aircraft extends Flyable {
         id = p_id;
         name = p_name;
         coordinates = p_coordinate;
+    }
+
+    @Override
+    public void updateConditions() {
+
     }
 }

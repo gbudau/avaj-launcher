@@ -1,7 +1,11 @@
-package ro.academyplus.avaj.simulator;
+package ro.academyplus.avaj.tower;
+
+import java.util.ArrayList;
+import java.util.List;
+import ro.academyplus.avaj.aircraft.Flyable;
 
 class Tower {
-    private final List<Flyable> observers = new Arraylist<>();
+    private final List<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable p_flyable) {
         observers.add(p_flyable);

@@ -1,6 +1,8 @@
-package ro.academyplus.avaj.simulator;
+package ro.academyplus.avaj.aircraft;
 
-class Flyable {
+import ro.academyplus.avaj.tower.WeatherTower;
+
+public abstract class Flyable {
     protected WeatherTower weatherTower;
 
     public abstract void updateConditions();

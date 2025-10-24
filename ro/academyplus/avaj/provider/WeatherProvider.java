@@ -1,4 +1,6 @@
-package ro.academyplus.avaj.simulator;
+package ro.academyplus.avaj.provider;
+
+import ro.academyplus.avaj.model.Coordinates;
 
 final class WeatherProvider {
     private static volatile WeatherProvider instance;
@@ -22,7 +24,7 @@ final class WeatherProvider {
 
     public static String getCurrentWeather(Coordinates p_coordinates) {
         WeatherProvider provider = WeatherProvider.getInstance();
-        int index = (p_coordinates.getLatitude() + p_coordinates.getLongitude() + p_coordinates.getHeight) % weather.length;
+        int index = (p_coordinates.getLatitude() + p_coordinates.getLongitude() + p_coordinates.getHeight()) % weather.length;
         return weather[index];
     }
 }

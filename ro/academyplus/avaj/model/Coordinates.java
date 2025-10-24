@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.simulator;
+package ro.academyplus.avaj.model;
 
-final class Coordinates {
+public final class Coordinates {
     private final int longitude;
     private final int latitude;
     private final int height;
