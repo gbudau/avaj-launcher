@@ -9,5 +9,9 @@ public abstract class Flyable {
 
     public void registerTower(WeatherTower p_tower) {
         weatherTower = p_tower;
+        weatherTower.register(this);
+        if (this instanceof Aircraft aircraft) {
+            System.out.println("Tower says: " + aircraft.getClass().getName() + "#" + aircraft.name  + "(" + aircraft.id + ") registered to weather tower.");
+        }
     }
 }
