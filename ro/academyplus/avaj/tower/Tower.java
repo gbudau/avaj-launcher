@@ -2,6 +2,7 @@ package ro.academyplus.avaj.tower;
 
 import java.util.ArrayList;
 import java.util.List;
+import ro.academyplus.avaj.aircraft.Aircraft;
 import ro.academyplus.avaj.aircraft.Flyable;
 
 class Tower {
@@ -16,6 +17,6 @@ class Tower {
     }
 
     protected void conditionChanged() {
-
+        observers.forEach(flyable -> flyable.updateConditions());
     }
 }
