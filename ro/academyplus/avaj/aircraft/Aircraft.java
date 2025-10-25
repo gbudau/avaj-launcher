@@ -2,10 +2,10 @@ package ro.academyplus.avaj.aircraft;
 
 import ro.academyplus.avaj.model.Coordinates;
 
-class Aircraft extends Flyable {
+public class Aircraft extends Flyable {
     protected final long id;
     protected final String name;
-    protected final Coordinates coordinates;
+    protected Coordinates coordinates;
 
     protected Aircraft (long p_id, String p_name, Coordinates p_coordinate) {
         id = p_id;
@@ -15,6 +15,6 @@ class Aircraft extends Flyable {
 
     @Override
     public void updateConditions() {
-
+        // no-op - to be implemented in subclasses
     }
 }
