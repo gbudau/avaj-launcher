@@ -1,10 +1,12 @@
 package ro.academyplus.avaj.provider;
 
 import ro.academyplus.avaj.model.Coordinates;
+import java.util.Objects;
+import java.lang.Math;
 
-final class WeatherProvider {
+public final class WeatherProvider {
     private static volatile WeatherProvider instance;
-    private static String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
+    private static final String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
     private WeatherProvider() { }
 
@@ -22,9 +24,17 @@ final class WeatherProvider {
         }
     }
 
-    public static String getCurrentWeather(Coordinates p_coordinates) {
-        WeatherProvider provider = WeatherProvider.getInstance();
-        int index = (p_coordinates.getLatitude() + p_coordinates.getLongitude() + p_coordinates.getHeight()) % weather.length;
+    private static String getWeather(Coordinates p_coordinates) {
+        int hash = Objects.hash(
+                p_coordinates.getLatitude(),
+                p_coordinates.getLongitude(),
+                p_coordinates.getHeight()
+        );
+        int index = Math.floorMod(hash, weather.length);
         return weather[index];
+    }
+
+    public static String getCurrentWeather(Coordinates p_coordinates) {
+        return WeatherProvider.getInstance().getCurrentWeather(p_coordinates);
     }
 }
