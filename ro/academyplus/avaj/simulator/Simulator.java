@@ -25,7 +25,7 @@ public class Simulator {
         int simulationsCount = 0;
         List<Flyable> aircrafts = new ArrayList<>();
 
-        try (Stream<String> lines = Files.lines(scenario.getAbsolutePath())) {
+        try (Stream<String> lines = Files.lines(scenario)) {
             Iterator<String> iterator = lines.iterator();
             if (!iterator.hasNext()) {
                 System.out.println("Scenario file is empty.");
