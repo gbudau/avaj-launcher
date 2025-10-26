@@ -32,7 +32,7 @@ public class Simulator {
                 System.exit(1);
             }
             String simulationsCountStr = iterator.next();
-            simulationsCount = parseSimulationsCount(iterator.next());
+            simulationsCount = parseSimulationsCount(simulationsCountStr);
             if (!isValidSimulationsCount(simulationsCount)) {
                 System.out.println("Invalid number of simulations: '" + simulationsCount + "'");
                 System.exit(1);
