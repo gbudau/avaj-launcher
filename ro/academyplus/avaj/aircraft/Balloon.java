@@ -39,15 +39,15 @@ public final class Balloon extends Aircraft {
         if (height > 0) {
             updateCoordinates(longitude, latitude, height);
         } else {
-            unregisterFromTower();
+            unregisterFromWeatherTower();
         }
     }
 
     private void updateCoordinates(int longitude, int latitude, int height) {
-        coordinates = new Coordinates(longitude, latitude, Math.min(height, 100));
+        coordinates = new Coordinates(longitude, latitude, height);
     }
 
-    private void unregisterFromTower() {
+    private void unregisterFromWeatherTower() {
         System.out.println("Balloon#" + name + "(" + id + "): Landing.");
         weatherTower.unregister(this);
         System.out.println("Tower says: Balloon#" + name + "(" + id + ") unregistered from weather tower.");

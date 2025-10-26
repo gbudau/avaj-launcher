@@ -1,5 +1,6 @@
 package ro.academyplus.avaj.aircraft;
 
+import ro.academyplus.avaj.exception.InvalidWeatherException;
 import ro.academyplus.avaj.model.Coordinates;
 
 public final class Helicopter extends Aircraft {
@@ -37,16 +38,15 @@ public final class Helicopter extends Aircraft {
         if (height > 0) {
             updateCoordinates(longitude, latitude, height);
         } else {
-            unregisterFromTower();
+            unregisterFromWeatherTower();
         }
     }
-}
 
     private void updateCoordinates(int longitude, int latitude, int height) {
-        coordinates = new Coordinates(longitude, latitude, Math.min(height, 100));
+        coordinates = new Coordinates(longitude, latitude, height);
     }
 
-    private void unregisterFromTower() {
+    private void unregisterFromWeatherTower() {
         System.out.println("Helicopter#" + name + "(" + id + "): Landing.");
         weatherTower.unregister(this);
         System.out.println("Tower says: Helicopter#" + name + "(" + id + ") unregistered from weather tower.");

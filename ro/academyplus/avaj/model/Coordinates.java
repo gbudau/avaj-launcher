@@ -1,5 +1,7 @@
 package ro.academyplus.avaj.model;
 
+import java.lang.Math;
+
 public final class Coordinates {
     private final int longitude;
     private final int latitude;
@@ -8,7 +10,7 @@ public final class Coordinates {
     public Coordinates(int longitude, int latitude, int height) {
         this.longitude = longitude;
         this.latitude = latitude;
-        this.height = height;
+        this.height = Math.min(height, 100);
     }
 
     public int getLongitude() {

@@ -3,12 +3,12 @@ package ro.academyplus.avaj.factory;
 import ro.academyplus.avaj.aircraft.Flyable;
 import ro.academyplus.avaj.aircraft.Balloon;
 import ro.academyplus.avaj.aircraft.Helicopter;
-import ro.academyplus.avaj.aircraft.Jetplane;
+import ro.academyplus.avaj.aircraft.JetPlane;
 import ro.academyplus.avaj.exception.InvalidAircraftException;
 import ro.academyplus.avaj.model.Coordinates;
 import java.util.concurrent.atomic.AtomicLong;
 
-final class AircraftFactory {
+public final class AircraftFactory {
     private static volatile AircraftFactory instance;
     private static final AtomicLong id = new AtomicLong(0);
 
@@ -35,7 +35,7 @@ final class AircraftFactory {
     private static Flyable createAircraft(String p_type, String p_name, Coordinates p_coordinates) {
         return switch (p_type) {
             case "Helicopter" -> new Helicopter(getNextId(), p_name, p_coordinates);
-            case "Jetplane" -> new Jetplane(getNextId(), p_name, p_coordinates);
+            case "JetPlane" -> new JetPlane(getNextId(), p_name, p_coordinates);
             case "Balloon" -> new Balloon(getNextId(), p_name, p_coordinates);
             default -> throw new InvalidAircraftException("Invalid aircraft: " + p_type);
         };

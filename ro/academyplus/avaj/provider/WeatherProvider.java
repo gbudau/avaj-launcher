@@ -35,6 +35,6 @@ public final class WeatherProvider {
     }
 
     public static String getCurrentWeather(Coordinates p_coordinates) {
-        return WeatherProvider.getInstance().getCurrentWeather(p_coordinates);
+        return WeatherProvider.getInstance().getWeather(p_coordinates);
     }
 }
