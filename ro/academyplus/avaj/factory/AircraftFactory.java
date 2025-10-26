@@ -36,8 +36,7 @@ final class AircraftFactory {
             case "Helicopter" -> new Helicopter(getNextId(), p_name, p_coordinates);
             case "Jetplane" -> new Jetplane(getNextId(), p_name, p_coordinates);
             case "Balloon" -> new Balloon(getNextId(), p_name, p_coordinates);
-            // TODO: Throw a custom exception
-            default -> throw new IllegalStateException("Unexpected value: " + p_type);
+            default -> throw new InvalidAircraftException("Invalid aircraft: " + p_type);
         };
     }
 

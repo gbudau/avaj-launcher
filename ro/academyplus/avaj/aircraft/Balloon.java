@@ -1,5 +1,6 @@
 package ro.academyplus.avaj.aircraft;
 
+import ro.academyplus.avaj.exception.InvalidWeatherException;
 import ro.academyplus.avaj.model.Coordinates;
 
 public final class Balloon extends Aircraft {
@@ -32,8 +33,7 @@ public final class Balloon extends Aircraft {
                 System.out.println("Balloon#" + name + "(" + id + "): It's snowing. We're gonna crash.");
                 break;
             default:
-                // TODO: Throw a custom exception
-                throw new IllegalStateException("Unknown weather " + weather);
+                throw new InvalidWeatherException("Invalid weather " + weather);
         }
 
         if (height <= 0) {
