@@ -6,6 +6,7 @@ import ro.academyplus.avaj.aircraft.Helicopter;
 import ro.academyplus.avaj.aircraft.JetPlane;
 import ro.academyplus.avaj.exception.InvalidAircraftException;
 import ro.academyplus.avaj.model.Coordinates;
+
 import java.util.concurrent.atomic.AtomicLong;
 
 public final class AircraftFactory {

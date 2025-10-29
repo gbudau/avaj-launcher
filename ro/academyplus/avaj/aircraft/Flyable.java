@@ -1,5 +1,6 @@
 package ro.academyplus.avaj.aircraft;
 
+import ro.academyplus.avaj.reporter.Reporter;
 import ro.academyplus.avaj.tower.WeatherTower;
 
 public abstract class Flyable {
@@ -11,7 +12,7 @@ public abstract class Flyable {
         weatherTower = p_tower;
         weatherTower.register(this);
         if (this instanceof Aircraft aircraft) {
-            System.out.println("Tower says: " + aircraft.getClass().getSimpleName() + "#" + aircraft.name  + "(" + aircraft.id + ") registered to weather tower.");
+            Reporter.report("Tower says: " + aircraft.getClass().getSimpleName() + "#" + aircraft.name  + "(" + aircraft.id + ") registered to weather tower.");
         }
     }
 }

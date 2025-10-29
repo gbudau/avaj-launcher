@@ -2,6 +2,7 @@ package ro.academyplus.avaj.aircraft;
 
 import ro.academyplus.avaj.exception.InvalidWeatherException;
 import ro.academyplus.avaj.model.Coordinates;
+import ro.academyplus.avaj.reporter.Reporter;
 
 public final class Balloon extends Aircraft {
     public Balloon(long p_id, String p_name, Coordinates p_coordinate) {
@@ -18,19 +19,19 @@ public final class Balloon extends Aircraft {
             case "SUN":
                 latitude += 2;
                 height += 4;
-                System.out.println("Balloon#" + name + "(" + id + "): Let's enjoy the good weather and take some pics.");
+                Reporter.report("Balloon#" + name + "(" + id + "): Let's enjoy the good weather and take some pics.");
                 break;
             case "RAIN":
                 height -= 5;
-                System.out.println("Balloon#" + name + "(" + id + "): Damn you rain! You messed up my balloon.");
+                Reporter.report("Balloon#" + name + "(" + id + "): Damn you rain! You messed up my balloon.");
                 break;
             case "FOG":
                 height -= 3;
-                System.out.println("Balloon#" + name + "(" + id + "): Can't see anything through this fog.");
+                Reporter.report("Balloon#" + name + "(" + id + "): Can't see anything through this fog.");
                 break;
             case "SNOW":
                 height -= 15;
-                System.out.println("Balloon#" + name + "(" + id + "): It's snowing. We're gonna crash.");
+                Reporter.report("Balloon#" + name + "(" + id + "): It's snowing. We're gonna crash.");
                 break;
             default:
                 throw new InvalidWeatherException("Invalid weather " + weather);
@@ -48,8 +49,8 @@ public final class Balloon extends Aircraft {
     }
 
     private void unregisterFromWeatherTower() {
-        System.out.println("Balloon#" + name + "(" + id + "): Landing.");
+        Reporter.report("Balloon#" + name + "(" + id + "): Landing.");
         weatherTower.unregister(this);
-        System.out.println("Tower says: Balloon#" + name + "(" + id + ") unregistered from weather tower.");
+        Reporter.report("Tower says: Balloon#" + name + "(" + id + ") unregistered from weather tower.");
     }
 }

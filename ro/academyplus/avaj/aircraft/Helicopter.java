@@ -2,6 +2,7 @@ package ro.academyplus.avaj.aircraft;
 
 import ro.academyplus.avaj.exception.InvalidWeatherException;
 import ro.academyplus.avaj.model.Coordinates;
+import ro.academyplus.avaj.reporter.Reporter;
 
 public final class Helicopter extends Aircraft {
     public Helicopter (long p_id, String p_name, Coordinates p_coordinate) {
@@ -18,19 +19,19 @@ public final class Helicopter extends Aircraft {
             case "SUN":
                 longitude += 10;
                 height += 2;
-                System.out.println("Helicopter#" + name + "(" + id + "): This is hot.");
+                Reporter.report("Helicopter#" + name + "(" + id + "): This is hot.");
                 break;
             case "RAIN":
                 longitude += 5;
-                System.out.println("Helicopter#" + name + "(" + id + "): It's raining. Better watch out for lightnings.");
+                Reporter.report("Helicopter#" + name + "(" + id + "): It's raining. Better watch out for lightnings.");
                 break;
             case "FOG":
                 longitude += 1;
-                System.out.println("Helicopter#" + name + "(" + id + "): Can't see anything through this fog.");
+                Reporter.report("Helicopter#" + name + "(" + id + "): Can't see anything through this fog.");
                 break;
             case "SNOW":
                 height -= 12;
-                System.out.println("Helicopter#" + name + "(" + id + "): My rotor is going to freeze!");
+                Reporter.report("Helicopter#" + name + "(" + id + "): My rotor is going to freeze!");
                 break;
             default:
                 throw new InvalidWeatherException("Invalid weather " + weather);
@@ -47,8 +48,8 @@ public final class Helicopter extends Aircraft {
     }
 
     private void unregisterFromWeatherTower() {
-        System.out.println("Helicopter#" + name + "(" + id + "): Landing.");
+        Reporter.report("Helicopter#" + name + "(" + id + "): Landing.");
         weatherTower.unregister(this);
-        System.out.println("Tower says: Helicopter#" + name + "(" + id + ") unregistered from weather tower.");
+        Reporter.report("Tower says: Helicopter#" + name + "(" + id + ") unregistered from weather tower.");
     }
 }

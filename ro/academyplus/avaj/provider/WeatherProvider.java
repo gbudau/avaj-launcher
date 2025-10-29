@@ -1,8 +1,9 @@
 package ro.academyplus.avaj.provider;
 
 import ro.academyplus.avaj.model.Coordinates;
-import java.util.Objects;
+
 import java.lang.Math;
+import java.util.Objects;
 
 public final class WeatherProvider {
     private static volatile WeatherProvider instance;

@@ -1,9 +1,10 @@
 package ro.academyplus.avaj.tower;
 
-import java.util.ArrayList;
-import java.util.List;
 import ro.academyplus.avaj.aircraft.Aircraft;
 import ro.academyplus.avaj.aircraft.Flyable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class Tower {
     private final List<Flyable> observers = new ArrayList<>();

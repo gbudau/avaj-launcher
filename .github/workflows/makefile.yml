@@ -26,3 +26,4 @@ jobs:
       run: |
         echo "$SCENARIO" > scenario.txt
         make
+        cat simulation.txt
