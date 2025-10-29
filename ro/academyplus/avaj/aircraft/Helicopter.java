@@ -48,7 +48,7 @@ public final class Helicopter extends Aircraft {
     }
 
     private void unregisterFromWeatherTower() {
-        Reporter.report("Helicopter#" + name + "(" + id + "): Landing.");
+        Reporter.report("Helicopter#" + name + "(" + id + ") landing.");
         weatherTower.unregister(this);
         Reporter.report("Tower says: Helicopter#" + name + "(" + id + ") unregistered from weather tower.");
     }

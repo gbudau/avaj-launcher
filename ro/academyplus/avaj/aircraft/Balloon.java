@@ -49,7 +49,7 @@ public final class Balloon extends Aircraft {
     }
 
     private void unregisterFromWeatherTower() {
-        Reporter.report("Balloon#" + name + "(" + id + "): Landing.");
+        Reporter.report("Balloon#" + name + "(" + id + ") landing.");
         weatherTower.unregister(this);
         Reporter.report("Tower says: Balloon#" + name + "(" + id + ") unregistered from weather tower.");
     }

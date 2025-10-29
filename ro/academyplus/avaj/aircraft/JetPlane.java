@@ -48,7 +48,7 @@ public final class JetPlane extends Aircraft {
     }
 
     private void unregisterFromWeatherTower() {
-        Reporter.report("JetPlane#" + name + "(" + id + "): Landing.");
+        Reporter.report("JetPlane#" + name + "(" + id + ") landing.");
         weatherTower.unregister(this);
         Reporter.report("Tower says: JetPlane#" + name + "(" + id + ") unregistered from weather tower.");
     }
