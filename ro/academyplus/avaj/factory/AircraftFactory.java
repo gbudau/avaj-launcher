@@ -10,16 +10,14 @@ import ro.academyplus.avaj.model.Coordinates;
 import java.util.concurrent.atomic.AtomicLong;
 
 public final class AircraftFactory {
-    private static volatile AircraftFactory instance;
+    private static volatile AircraftFactory instance = null;
     private static final AtomicLong id = new AtomicLong(0);
 
     private AircraftFactory() {}
 
     private static AircraftFactory getInstance() {
-        AircraftFactory aircraftFactory = instance;
-
-        if (aircraftFactory != null) {
-            return aircraftFactory;
+        if (instance != null) {
+            return instance;
         }
         synchronized (AircraftFactory.class) {
             if (instance == null) {

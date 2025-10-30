@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 
 public class ScenarioParser {
 
-    public Scenario parse(Path filePath) throws ScenarioParseException, IOException {
+    public Scenario parse(Path filePath) throws ScenarioParseException {
         try (Stream<String> lines = Files.lines(filePath)) {
             Iterator<String> iterator = lines.iterator();
 
