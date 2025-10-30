@@ -6,16 +6,14 @@ import java.lang.Math;
 import java.util.Objects;
 
 public final class WeatherProvider {
-    private static volatile WeatherProvider instance;
+    private static volatile WeatherProvider instance = null;
     private static final String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
     private WeatherProvider() { }
 
     private static WeatherProvider getInstance() {
-        WeatherProvider weatherProvider = instance;
-
-        if (weatherProvider != null) {
-            return weatherProvider;
+        if (instance != null) {
+            return instance;
         }
         synchronized (WeatherProvider.class) {
             if (instance == null) {
