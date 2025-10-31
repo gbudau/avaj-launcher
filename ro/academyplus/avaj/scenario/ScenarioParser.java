@@ -65,10 +65,10 @@ public class ScenarioParser {
         return aircraftsList;
     }
 
-    private Flyable parseAircraft(String line) throws ScenarioParseException {
+    private Flyable parseAircraft(String line) throws ScenarioParseException, InvalidAircraftException {
         String[] parts = line.split(" ");
         if (parts.length != 5) {
-            throw new ScenarioParseException("'" + line + "' -> Expected 5 fields, but found " + parts.length + ".");
+            throw new ScenarioParseException("Invalid line: "  + "'" + line + "'");
         }
 
         String type = parts[0];
