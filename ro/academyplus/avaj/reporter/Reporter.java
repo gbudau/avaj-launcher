@@ -21,7 +21,7 @@ public class Reporter {
 
     public static synchronized void report(String message) {
         if (writer == null) {
-            System.err.println("Reporter not initialized! Message: " + message);
+            System.out.println("Reporter not initialized! Message: " + message);
             return;
         }
         writer.println(message);

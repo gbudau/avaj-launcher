@@ -4,6 +4,9 @@ global.puml
 scenario.txt
 simulation.txt
 sources.txt
+classes
+avaj-launcher.iml
+.idea/runConfigurations/avaj_launcher.xml
 
 # Created by https://www.toptal.com/developers/gitignore/api/java,intellij+all,visualstudiocode,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,intellij+all,visualstudiocode,vim

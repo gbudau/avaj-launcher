@@ -1,6 +1,5 @@
 package ro.academyplus.avaj.tower;
 
-import ro.academyplus.avaj.aircraft.Aircraft;
 import ro.academyplus.avaj.aircraft.Flyable;
 
 import java.util.ArrayList;

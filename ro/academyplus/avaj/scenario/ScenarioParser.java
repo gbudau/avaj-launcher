@@ -25,26 +25,8 @@ public class ScenarioParser {
                 throw new ScenarioParseException("Scenario file is empty.");
             }
 
-            String firstLine = iterator.next();
-            int simulationsCount = parseSimulationsCount(firstLine);
-
-            List<Flyable> aircraftsList = new ArrayList<>();
-            int lineNumber = 2;
-
-            while (iterator.hasNext()) {
-                String line = iterator.next().trim();
-
-                try {
-                    aircraftsList.add(parseAircraft(line));
-                } catch (ScenarioParseException | InvalidAircraftException e) {
-                    throw new ScenarioParseException("Error on line " + lineNumber + ": " + e.getMessage());
-                }
-                lineNumber++;
-            }
-
-            if (aircraftsList.isEmpty()) {
-                throw new ScenarioParseException("No aircraft defined in the scenario.");
-            }
+            int simulationsCount = parseSimulationsCount(iterator.next());
+            List<Flyable> aircraftsList = parseAircrafts(iterator);
 
             return new Scenario(simulationsCount, aircraftsList);
 
@@ -61,8 +43,30 @@ public class ScenarioParser {
         return count;
     }
 
+    private List<Flyable> parseAircrafts(Iterator<String> iterator) throws ScenarioParseException {
+        List<Flyable> aircraftsList = new ArrayList<>();
+        int lineNumber = 2;
+
+        while (iterator.hasNext()) {
+            String line = iterator.next().trim();
+
+            try {
+                aircraftsList.add(parseAircraft(line));
+            } catch (ScenarioParseException | InvalidAircraftException e) {
+                throw new ScenarioParseException("Error on line " + lineNumber + ": " + e.getMessage(), e);
+            }
+            lineNumber++;
+        }
+
+        if (aircraftsList.isEmpty()) {
+            throw new ScenarioParseException("No aircraft defined in the scenario.");
+        }
+
+        return aircraftsList;
+    }
+
     private Flyable parseAircraft(String line) throws ScenarioParseException {
-        String[] parts = line.split("\\s+");
+        String[] parts = line.split(" ");
         if (parts.length != 5) {
             throw new ScenarioParseException("'" + line + "' -> Expected 5 fields, but found " + parts.length + ".");
         }
@@ -87,7 +91,7 @@ public class ScenarioParser {
     private int parseInteger(String str, String fieldName) throws ScenarioParseException {
         try {
             return Integer.parseInt(str.trim());
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException _) {
             throw new ScenarioParseException("Invalid number format for " + fieldName + ": '" + str + "'");
         }
     }

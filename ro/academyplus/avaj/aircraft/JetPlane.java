@@ -19,19 +19,19 @@ public final class JetPlane extends Aircraft {
             case "SUN":
                 latitude += 10;
                 height += 2;
-                Reporter.report("JetPlane#" + name + "(" + id + "): It's a sunny day, perfect for flying.");
+                Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + "): It's a sunny day, perfect for flying.");
                 break;
             case "RAIN":
                 latitude += 5;
-                Reporter.report("JetPlane#" + name + "(" + id + "): Flying through the rain, stay safe everyone.");
+                Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + "): Flying through the rain, stay safe everyone.");
                 break;
             case "FOG":
                 latitude += 1;
-                Reporter.report("JetPlane#" + name + "(" + id + "): Fog ahead, reducing speed.");
+                Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + "): Fog ahead, reducing speed.");
                 break;
             case "SNOW":
                 height -= 7;
-                Reporter.report("JetPlane#" + name + "(" + id + "): Snow is making it hard to maintain altitude.");
+                Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + "): Snow is making it hard to maintain altitude.");
                 break;
             default:
                 throw new InvalidWeatherException("Invalid weather " + weather);
@@ -48,8 +48,8 @@ public final class JetPlane extends Aircraft {
     }
 
     private void unregisterFromWeatherTower() {
-        Reporter.report("JetPlane#" + name + "(" + id + ") landing.");
+        Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + ") landing.");
         weatherTower.unregister(this);
-        Reporter.report("Tower says: JetPlane#" + name + "(" + id + ") unregistered from weather tower.");
+        Reporter.report("Tower says: " + this.getClass().getSimpleName() + "#" + name + "(" + id + ") unregistered from weather tower.");
     }
 }

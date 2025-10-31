@@ -19,19 +19,19 @@ public final class Helicopter extends Aircraft {
             case "SUN":
                 longitude += 10;
                 height += 2;
-                Reporter.report("Helicopter#" + name + "(" + id + "): This is hot.");
+                Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + "): This is hot.");
                 break;
             case "RAIN":
                 longitude += 5;
-                Reporter.report("Helicopter#" + name + "(" + id + "): It's raining. Better watch out for lightnings.");
+                Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + "): It's raining. Better watch out for lightnings.");
                 break;
             case "FOG":
                 longitude += 1;
-                Reporter.report("Helicopter#" + name + "(" + id + "): Can't see anything through this fog.");
+                Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + "): Can't see anything through this fog.");
                 break;
             case "SNOW":
                 height -= 12;
-                Reporter.report("Helicopter#" + name + "(" + id + "): My rotor is going to freeze!");
+                Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + "): My rotor is going to freeze!");
                 break;
             default:
                 throw new InvalidWeatherException("Invalid weather " + weather);
@@ -48,8 +48,8 @@ public final class Helicopter extends Aircraft {
     }
 
     private void unregisterFromWeatherTower() {
-        Reporter.report("Helicopter#" + name + "(" + id + ") landing.");
+        Reporter.report(this.getClass().getSimpleName() + "#" + name + "(" + id + ") landing.");
         weatherTower.unregister(this);
-        Reporter.report("Tower says: Helicopter#" + name + "(" + id + ") unregistered from weather tower.");
+        Reporter.report("Tower says: " + this.getClass().getSimpleName() + "#" + name + "(" + id + ") unregistered from weather tower.");
     }
 }

@@ -2,8 +2,6 @@ package ro.academyplus.avaj.model;
 
 import ro.academyplus.avaj.exception.InvalidCoordinateException;
 
-import java.lang.Math;
-
 public final class Coordinates {
     private final int longitude;
     private final int latitude;

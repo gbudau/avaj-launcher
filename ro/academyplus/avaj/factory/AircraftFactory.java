@@ -13,7 +13,7 @@ public final class AircraftFactory {
     private static volatile AircraftFactory instance = null;
     private static final AtomicLong id = new AtomicLong(0);
 
-    private AircraftFactory() {}
+    private AircraftFactory() { }
 
     private static AircraftFactory getInstance() {
         if (instance != null) {
@@ -41,8 +41,6 @@ public final class AircraftFactory {
     }
 
     public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
-        return AircraftFactory
-                .getInstance()
-                .createAircraft(p_type, p_name, p_coordinates);
+        return AircraftFactory.getInstance().createAircraft(p_type, p_name, p_coordinates);
     }
 }
